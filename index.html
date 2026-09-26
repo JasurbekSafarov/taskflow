@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TaskFlow — simple task manager</title>
+<meta name="description" content="TaskFlow: a lightweight task manager built with vanilla HTML, CSS and JavaScript. Add, prioritize, filter and track daily tasks with local persistence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div></div>
+
+<main class="wrap">
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">✓</span>TaskFlow</div>
+    <p class="tagline">A lightweight task manager — add, prioritize, and clear your day.</p>
+  </header>
+
+  <section class="board g">
+    <form id="addForm" class="add-row">
+      <input id="taskInput" type="text" placeholder="What needs doing?" autocomplete="off" maxlength="140" required>
+      <select id="prioritySelect" aria-label="Priority">
+        <option value="low">Low</option>
+        <option value="med" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button type="submit" class="btn">Add</button>
+    </form>
+
+    <div class="filters" role="group" aria-label="Filter tasks">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="active" aria-pressed="false">Active</button>
+      <button type="button" data-f="done" aria-pressed="false">Completed</button>
+    </div>
+
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>Nothing here yet — add your first task above.</p>
+
+    <footer class="board-foot">
+      <span id="count">0 items left</span>
+      <button id="clearDone" type="button" class="link-btn">Clear completed</button>
+    </footer>
+  </section>
+
+  <p class="footnote">Tasks are saved in your browser only (localStorage) — no server, no account.</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
